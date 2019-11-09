@@ -1,0 +1,6 @@
+<resources>
+  <string name="app_name">BullshitGenerator</string>
+  <string name="output">Output</string>
+  <string name="generate">Generate</string>
+  <string name="theme">Theme</string>
+</resources>

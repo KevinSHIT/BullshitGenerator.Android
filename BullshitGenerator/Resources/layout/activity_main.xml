@@ -1,0 +1,33 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <EditText
+        android:id="@+id/theme"
+        android:maxLines="1"
+        android:hint="@string/theme"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft ="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:enabled="true"
+        android:id="@+id/output"
+        android:hint="@string/output"
+        android:layout_marginLeft ="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <Button
+        android:id="@+id/generate"
+        android:text="@string/generate"
+        android:textStyle="bold"
+        android:layout_marginTop="-60dp"
+        android:layout_marginLeft ="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
