@@ -3,4 +3,8 @@
   <string name="output">Output</string>
   <string name="generate">Generate</string>
   <string name="theme">Theme</string>
+  <string name="info">Info</string>
+  <string name="copy_to_clipboard">Do you want to copy to clipboard?</string>
+  <string name="ok">OK</string>
+  <string name="cancle">Cancle</string>
 </resources>

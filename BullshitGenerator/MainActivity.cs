@@ -41,7 +41,15 @@ namespace BullshitGenerator
 
             btn_generate.LongClick += async (sender, e) =>
             {
-                await Clipboard.SetTextAsync(et_output.Text); // Copy to clipboard
+                var alertDialog = new Android.App.AlertDialog.Builder(this).Create();
+                alertDialog.SetTitle(Resources.GetString(Resource.String.info));
+                alertDialog.SetMessage(Resources.GetString(Resource.String.copy_to_clipboard));
+                alertDialog.SetButton(Resources.GetString(Resource.String.ok), async (s, a) => 
+                {
+                    await Clipboard.SetTextAsync(et_output.Text);
+                });
+                alertDialog.SetButton2(Resources.GetString(Resource.String.cancle), (s, a) => { });
+                alertDialog.Show();
             };
 
         }
