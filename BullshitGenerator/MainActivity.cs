@@ -18,6 +18,8 @@ namespace BullshitGenerator
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            int fastClickCounter = 0;
+            long lastClickTime = 0;
 
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
@@ -35,6 +37,31 @@ namespace BullshitGenerator
 
             btn_generate.Click += (sender, e) =>
             {
+                long currentTime = DateTime.Now.Ticks;
+                if (fastClickCounter == 0)
+                {
+                    fastClickCounter += 1;
+                    lastClickTime = currentTime;
+                    
+                }
+                else
+                {
+                    if(currentTime - lastClickTime <= 10000000)
+                    {
+                        fastClickCounter += 1;
+                        lastClickTime = currentTime;
+                    }
+                    else
+                    {
+                        fastClickCounter = 0;
+                    }
+                }
+                if(fastClickCounter == 10)
+                {
+                    Toast.MakeText(Application.Context, "BullshitGenerator by menzi11\nBullshitGenerator.Android by Kevin\nMIT License\nKevin ♥ Jiangyu & .NET", ToastLength.Long).Show();
+                    //Code easter egg here
+                    fastClickCounter = 0; //Replace counter
+                }
                 Shit.theme = et_theme.Text;
                 et_output.Text = Shit.GenerateArticle();
             };
