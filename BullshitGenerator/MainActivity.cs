@@ -96,6 +96,10 @@ namespace BullshitGenerator
                 switch (mode.ToLower())
                 {
                     case "chs":
+                        if(et_theme.Text == "一天掉多少根头发")
+                        {
+                            et_theme.Text = shitEnglish.theme;
+                        }
                         mode = "eng";
                         btn_switch.Text = Resources.GetString(Resource.String.switch_chs);
                         break;
