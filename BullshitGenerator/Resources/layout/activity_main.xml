@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"/>
     <Button
         android:id="@+id/btnswitch"
-        android:text="@string/switch-eng"
+        android:text="@string/switch_eng"
         android:textStyle="bold"
         android:layout_marginTop="-100dp"
         android:layout_marginLeft ="8dp"

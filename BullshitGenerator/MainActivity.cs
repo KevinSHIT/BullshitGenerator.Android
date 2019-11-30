@@ -101,7 +101,6 @@ namespace BullshitGenerator
                         break;
                     case "eng":
                         mode = "chs";
-
                         btn_switch.Text = Resources.GetString(Resource.String.switch_eng);
                         break;
                     default:

@@ -7,6 +7,6 @@
   <string name="copy_to_clipboard">是否将文章复制到剪切板？</string>
   <string name="ok">好</string>
   <string name="cancle">取消</string>
-  <string name="switch-chs">切换至中文</string>
-  <string name="switch-eng">切换至英文</string>
+  <string name="switch_chs">切换至中文</string>
+  <string name="switch_eng">切换至英文</string>
 </resources>
