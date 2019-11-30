@@ -18,6 +18,8 @@ namespace BullshitGenerator
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            string mode = ""; //CHS or ENG
+
             int fastClickCounter = 0;
             long lastClickTime = 0;
 
@@ -29,9 +31,11 @@ namespace BullshitGenerator
             Button btn_generate = FindViewById<Button>(Resource.Id.generate);
             EditText et_theme = FindViewById<EditText>(Resource.Id.theme);
             EditText et_output = FindViewById<EditText>(Resource.Id.output);
+            Button btn_switch = FindViewById<Button>(Resource.Id.btnswitch);
             #endregion
 
             Shit shit = new Shit();
+            ShitEnglish shitEnglish = new ShitEnglish();
 
             et_theme.Text = Shit.theme;
 
@@ -62,8 +66,15 @@ namespace BullshitGenerator
                     //Code easter egg here
                     fastClickCounter = 0; //Replace counter
                 }
-                Shit.theme = et_theme.Text;
-                et_output.Text = Shit.GenerateArticle();
+                if (mode == "chs")
+                {
+                    Shit.theme = et_theme.Text;
+                    et_output.Text = Shit.GenerateArticle();
+                }
+                else
+                {
+                    et_output.Text = shitEnglish.Generate(et_theme.Text);
+                }
             };
 
             btn_generate.LongClick += (sender, e) =>
@@ -80,13 +91,30 @@ namespace BullshitGenerator
                 alertDialog.Show();
             };
 
+            btn_switch.Click += (sender, e) =>
+            {
+                switch (mode.ToLower())
+                {
+                    case "chs":
+                        mode = "eng";
+                        btn_switch.Text = Resources.GetString(Resource.String.switch_chs);
+                        break;
+                    case "eng":
+                        mode = "chs";
+
+                        btn_switch.Text = Resources.GetString(Resource.String.switch_eng);
+                        break;
+                    default:
+                        throw new IndexOutOfRangeException();
+                }
+            };
+
         }
 
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
 	}
@@ -534,7 +562,9 @@ namespace BullshitGenerator
         };
         #endregion
 
-        string sayings()
+        public string theme = "Why I have no hair?";
+
+        string Sayings()
         {
             Random random = new Random();
             string xx;
@@ -553,12 +583,12 @@ namespace BullshitGenerator
             return xx;
         }
 
-        string paragraph()
+        string Paragraph()
         {
             return ".\r\n      ";
         }
 
-        string generator(string theme, int length)
+        string Generator(string theme, int length)
         {
             Random random = new Random();
             string tmp = "    ";
@@ -568,12 +598,12 @@ namespace BullshitGenerator
                 para = random.Next(0, 100);
                 if (para < 5 && tmp.ToCharArray()[tmp.ToCharArray().Length - 2] != ',')
                 {
-                    tmp += paragraph();
+                    tmp += Paragraph();
                 }
                 else if (para < 20)
                 {
                     tmp += RandChoice(example);
-                    tmp += sayings();
+                    tmp += Sayings();
                 }
                 else if (para >= 20 && para <= 65)
                 {
@@ -590,7 +620,7 @@ namespace BullshitGenerator
             return tmp;
         }
 
-        string clean(string str)
+        string Clean(string str)
         {
             str = str.Replace("  ", " ").Replace(". . ", ". ").Replace("? . ", "? ").Replace(", . ", ", ").Replace(".. ", ". ").Replace("?. ", "? ").Replace(",. ", ", ").Replace(". . ", ". ");
             string[] lst = str.Split(' ');
@@ -604,7 +634,7 @@ namespace BullshitGenerator
             return string.Join(' ', lst);
         }
 
-        public string generate(string theme) => clean(generator(theme, 10000));
+        public string Generate(string theme) => Clean(Generator(theme, 10000));
 
         string RandChoice(string[] str)
         {
