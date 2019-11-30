@@ -621,7 +621,9 @@ namespace BullshitGenerator
 
         string Clean(string str)
         {
-            str = str.Replace("  ", " ").Replace(". . ", ". ").Replace("? . ", "? ").Replace(", . ", ", ").Replace(".. ", ". ").Replace("?. ", "? ").Replace(",. ", ", ").Replace(". . ", ". ");
+            str = str.Replace("  ", " ").Replace(". . ", ". ").Replace("? . ", "? ")
+                .Replace(", . ", ", ").Replace(".. ", ". ").Replace("?. ", "? ")
+                .Replace(",. ", ", ").Replace(". .", ". ").Replace("?.", "? ");
             string[] lst = str.Split(' ');
             for (int i = 0; i < lst.Length - 1; i++)
             {
