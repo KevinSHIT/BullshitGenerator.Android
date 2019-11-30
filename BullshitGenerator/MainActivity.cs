@@ -73,7 +73,7 @@ namespace BullshitGenerator
                 }
                 else
                 {
-                    et_output.Text = shitEnglish.Generate(et_theme.Text);
+                    et_output.Text = shitEnglish.Generate(et_theme.Text).Replace("  .\n", "").Replace(" .\n", "");
                 }
             };
 
@@ -592,7 +592,7 @@ namespace BullshitGenerator
 
         string Paragraph()
         {
-            return ".\r\n      ";
+            return ".\n      ";
         }
 
         string Generator(string theme, int length)
@@ -631,7 +631,9 @@ namespace BullshitGenerator
         {
             str = str.Replace("  ", " ").Replace(". . ", ". ").Replace("? . ", "? ")
                 .Replace(", . ", ", ").Replace(".. ", ". ").Replace("?. ", "? ")
-                .Replace(",. ", ", ").Replace(". .", ". ").Replace("?.", "? ");
+                .Replace(",. ", ", ").Replace(". .", ". ").Replace("?.", "? ")
+                .Replace("?, ", "? ").Replace("?,", "? ").Replace("..", ". ")
+                .Replace("  "," ");
             string[] lst = str.Split(' ');
             for (int i = 0; i < lst.Length - 1; i++)
             {
