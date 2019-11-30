@@ -62,7 +62,7 @@ namespace BullshitGenerator
                 }
                 if(fastClickCounter == 10)
                 {
-                    Toast.MakeText(Application.Context, "BullshitGenerator by menzi11\nBullshitGenerator.Android by Kevin\nMIT License\nKevin ♥ Jiangyu & .NET", ToastLength.Long).Show();
+                    Toast.MakeText(Application.Context, "BullshitGenerator by menzi11\nBullshitGenerator.Android by Kevin\nEnglish algorithm by JIUYANGZH\nMIT License\nKevin ♥ Jiangyu & .NET", ToastLength.Long).Show();
                     //Code easter egg here
                     fastClickCounter = 0; //Replace counter
                 }
