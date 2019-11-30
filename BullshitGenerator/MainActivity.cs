@@ -370,4 +370,257 @@ namespace BullshitGenerator
         }
 
     }
+
+    public class ShitEnglish
+    {
+        #region Bullshit Sayings
+        static string[] bullshit =
+        {
+            "xx is a common condition among civilians in today’s society, so, ",
+            "xx has become increasingly evident among teens according to many scientists, ",
+            "now, solving xx is becoming a more and more significant issue, ",
+            "we have to face an embarrassing situation, that is, ",
+            "what should we do to give rise to xx, and what should we do to prevent xx's happening. ",
+            "but these are not the most urgent issue, a more pressing issue about xx is, ",
+            "what could we do anyway to ahchieve xx. ",
+            "With these questions, let's take a closer look to xx. ",
+            "For xx, the key point is how to express xx. ",
+            "We generally say, if we grasped the key of the problem of xx, everthing else will be easily solved. ",
+            "What is the key point of xx? ",
+            "Why does xx happen? ",
+            "Every person has to face these problems caused by xx, when facing these problems, ",
+            "We must think carefully when talking about xx. ",
+            "We have to figure out what kind of exist xx is ",
+            "For many years, people with xx have been viewed as different. ",
+            "The problem lies in the difference of people raised by xx, ",
+            "Does the government provide help for xx? ",
+            "As this subject continues to be looked down on people must realize that xx are becoming more common in today’s world. ",
+            "More current studies of people who take xx heavely show no evidence of emotional damage. ",
+            "Several studies of the effects of xx on the human systems have failed to demonstrate these effects. ",
+            "One of the longest standing arguments against the use of xx is that, ",
+            "Modern vehement arguments against xx alone become suspect. ",
+            "xx continues to be a relevant controversial issue in society today, as ",
+            "From my piont of view, xx means a lot to me, and ",
+            "We have been thinking about xx for a long time. ",
+            "What if xx happens, and what if xx does not happen. ",
+            "When facing this difficult choice of xx, I rarely slept well. ",
+            "If xx takes place in our daliy life, we have to consider its consequence. ",
+            "The consequece of xx is of great significance to me, and to many other people. "
+        };
+
+        static string[] prefix_1 =
+        {
+            "concluded that, ",
+            "attemptted to convince the reader that, ",
+            "stated in his book that, ",
+            "argued that, ",
+            "told us that, ",
+            "showed us that, ",
+            "mentioned that, "
+
+        };
+
+        static string[] addings =
+        {
+            "Furthermore, ",
+            "Moreover, ",
+            "In addition, ",
+            "Besides, ",
+            "Above all, ",
+            "Similarly, ",
+            "With respect to",
+            "Since that is so, ",
+            "Thus, ",
+            "Therefore, ",
+            "In that case, ",
+            "In other words, ",
+            "It is important to note that",
+            "On the other hand, ",
+            "On the one hand, "
+        };
+
+        static string[] example =
+        {
+            "That is to say, ",
+            "For example, ",
+            "For instance, ",
+            "Namely, ",
+            "As in the following example, ",
+            "In particular, ",
+            "Chiefly, "
+        };
+
+        static string[] contrasts =
+        {
+            "By contrasts, ",
+            "Another way of viewing this is, ",
+            "Alternatively, ",
+            "Another possibility is, ",
+            "In comparison, ",
+            "On the contrary, ",
+            "In fact, ",
+            "To look at another way, ",
+            "It is disappointing that, ",
+            "However, "
+        };
+
+        static string[] prefix_2 =
+        {
+            "According to ",
+            "To quote from "
+        };
+
+        static string[] suffix =
+        {
+            "which enlighten me. ",
+            "that inspired me. ",
+            "that aroused my imagination. ",
+            "that solved my problem. ",
+            "which brought a new way of thinking it. "
+        };
+
+        static string[] author =
+        {
+            "Lao Tzu, Te Tao Ching",
+            "Plato, Symposium / Phaedrus",
+            "Jacqueline Carey, Kushiel's Dart",
+            "Napoleon Bonaparte",
+            "Plato",
+            "James Thurber",
+            "Emil Cioran",
+            "David Mamet",
+            "Mokokoma Mokhonoana",
+            "Franz Kafka",
+            "Steve Wozniak",
+            "Friedrich Nietzsche",
+            "Rebecca West",
+            "Rebecca McClanahan",
+            "Mokokoma Mokhonoana",
+            "Marty Rubin",
+            "Kamand Kojouri",
+            "William Penn",
+            "Friedrich Von Schlegel",
+            "S. Spencer Baker",
+            "Orson Scott Card",
+            "Ljupka Cvetanova",
+            "Comte de Lautréamont"
+        };
+
+        static string[] saying =
+        {
+            "the flame that burns Twice as bright burns half as long. ",
+            "there is truth in wine and children. ",
+            "that which yields is not always weak. ",
+            "if you want a thing done well, do it yourself. ",
+            "necessity is the mother of invention. ",
+            "all human beings should try to learn before they die what they are running from, and to, and why. ",
+            "melancholy: an appetite no misery satisfies. ",
+            "it's only words... unless they're true. ",
+            "plants are more courageous than almost all human beings: an orange tree would rather die than produce lemons, whereas instead of dying the average person would rather be someone they are not. ",
+            "if a man has his eyes bound, you can encourage him as much as you like to stare through the bandage, but he'll never see anything. ",
+            "never trust a computer you can't throw out a window. ",
+            "I have forgotten my umbrella. ",
+            "The trouble about man is twofold. He cannot learn truths which are too complicated; he forgets truths which are too simple. ",
+            "the shortest distance between two points is always under construction. ",
+            "some people talk about other people’s failures with so much pleasure that you would swear they are talking about their own successes. ",
+            "there is music you never hear unless you play it yourself. ",
+            "what you choose also chooses you. ",
+            "all Excess is ill: But Drunkenness is of the worst Sort. It spoils Health, dismounts the Mind, and unmans Men: It reveals Secrets, is Quarrelsome, Lascivious, Impudent, Dangerous and Mad. In fine, he that is drunk is not a Man: Because he is so long void of Reason, that distinguishes a Man from a Beast. ",
+            "an aphorism ought to be entirely isolated from the surrounding world like a little work of art and complete in itself like a hedgehog. ",
+            "laughter is the antidote to existential pain. ",
+            "Eko brushed a tear from her eye, and Immo jeered at her, but father held up a hand. \"Never mock a tender heart,\" he said. ",
+            "smile and the world will laugh at you. ",
+            "we say sound things when we do not strive to say to say extraordinary ones. "
+        };
+        #endregion
+
+        string sayings()
+        {
+            Random random = new Random();
+            string xx;
+            int index = random.Next(0, saying.Length);
+            if (random.Next(0, 10) >= 3)
+            {
+                xx = author[index] + " " +
+                RandChoice(prefix_1) + saying[index] +
+                " " + Capitalize(RandChoice(suffix));
+            }
+            else
+            {
+                xx = RandChoice(prefix_2) + author[index] +
+                ", " + saying[index] + "" + Capitalize(RandChoice(suffix));
+            }
+            return xx;
+        }
+
+        string paragraph()
+        {
+            return ".\r\n      ";
+        }
+
+        string generator(string theme, int length)
+        {
+            Random random = new Random();
+            string tmp = "    ";
+            int para;
+            while (tmp.Length < length)
+            {
+                para = random.Next(0, 100);
+                if (para < 5 && tmp.ToCharArray()[tmp.ToCharArray().Length - 2] != ',')
+                {
+                    tmp += paragraph();
+                }
+                else if (para < 20)
+                {
+                    tmp += RandChoice(example);
+                    tmp += sayings();
+                }
+                else if (para >= 20 && para <= 65)
+                {
+                    tmp += RandChoice(addings);
+                    tmp += RandChoice(bullshit);
+                }
+                else
+                {
+                    tmp += RandChoice(contrasts);
+                    tmp += RandChoice(bullshit);
+                }
+                tmp = tmp.Replace("xx", theme);
+            }
+            return tmp;
+        }
+
+        string clean(string str)
+        {
+            str = str.Replace("  ", " ").Replace(". . ", ". ").Replace("? . ", "? ").Replace(", . ", ", ").Replace(".. ", ". ").Replace("?. ", "? ").Replace(",. ", ", ").Replace(". . ", ". ");
+            string[] lst = str.Split(' ');
+            for (int i = 0; i < lst.Length - 1; i++)
+            {
+                if (lst[i].EndsWith(",") || lst[i].EndsWith(":"))
+                {
+                    lst[i + 1] = lst[i + 1].ToLower();
+                }
+            }
+            return string.Join(' ', lst);
+        }
+
+        public string generate(string theme) => clean(generator(theme, 10000));
+
+        string RandChoice(string[] str)
+        {
+            Random random = new Random();
+            return str[random.Next(0, str.Length)];
+        }
+
+        string Capitalize(string str)
+        {
+            char[] i = str.ToCharArray();
+            i[0] = i[0].ToString().ToUpper().ToCharArray()[0];
+            for (int a = 1; a < i.Length; a++)
+            {
+                i[a] = i[a].ToString().ToLower().ToCharArray()[0];
+            }
+            return new string(i);
+        }
+    }
 }
