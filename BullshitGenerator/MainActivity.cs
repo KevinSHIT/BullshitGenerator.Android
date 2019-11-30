@@ -18,7 +18,7 @@ namespace BullshitGenerator
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            string mode = ""; //CHS or ENG
+            string mode = "chs"; //CHS or ENG
 
             int fastClickCounter = 0;
             long lastClickTime = 0;
