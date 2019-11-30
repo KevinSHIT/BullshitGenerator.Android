@@ -105,6 +105,10 @@ namespace BullshitGenerator
                         break;
                     case "eng":
                         mode = "chs";
+                        if(et_theme.Text == shitEnglish.theme)
+                        {
+                            et_theme.Text = Shit.theme;
+                        }
                         btn_switch.Text = Resources.GetString(Resource.String.switch_eng);
                         break;
                     default:
