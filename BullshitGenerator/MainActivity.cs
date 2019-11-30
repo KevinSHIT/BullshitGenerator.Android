@@ -63,13 +63,12 @@ namespace BullshitGenerator
                 if(fastClickCounter == 10)
                 {
                     Toast.MakeText(Application.Context, "BullshitGenerator by menzi11\nBullshitGenerator.Android by Kevin\nEnglish algorithm by JIUYANGZH\nMIT License\nKevin ♥ Jiangyu & .NET", ToastLength.Long).Show();
-                    //Code easter egg here
                     fastClickCounter = 0; //Replace counter
                 }
                 if (mode == "chs")
                 {
                     Shit.theme = et_theme.Text;
-                    et_output.Text = Shit.GenerateArticle();
+                    et_output.Text = Shit.GenerateArticle(et_theme.Text);
                 }
                 else
                 {
@@ -135,6 +134,7 @@ namespace BullshitGenerator
         /// </summary>
         public static string theme = "一天掉多少根头发";
 
+        #region Bullshit
         /// <summary>
         /// 论述
         /// </summary>
@@ -298,15 +298,14 @@ namespace BullshitGenerator
             "在不经意间这样说过"
         };
 
+        #endregion
+
         /// <summary>
         /// 随便取一句
         /// </summary>
         /// <param name="inputList">表列</param>
         /// <returns></returns>
-        static string RandomOneSentence(string[] inputList)
-        {
-            return inputList[random.Next(0, inputList.Length - 1)];
-        }
+        static string RandomOneSentence(string[] inputList) => inputList[random.Next(0, inputList.Length - 1)];
 
         /// <summary>
         ///  随便取一个数
@@ -314,10 +313,7 @@ namespace BullshitGenerator
         /// <param name="min"></param>
         /// <param name="max"></param>
         /// <returns></returns>
-        static int RandomOneNumber(int min = 0, int max = 100)
-        {
-            return random.Next(min, max + 1);
-        }
+        static int RandomOneNumber(int min = 0, int max = 100) => random.Next(min, max + 1);
 
         /// <summary>
         /// 来点名人名言
@@ -335,7 +331,7 @@ namespace BullshitGenerator
         /// 来点论述
         /// </summary>
         /// <returns></returns>
-        static string GetSomeDiscuzz()
+        static string GetSomeDiscuzz(string theme)
         {
             string str = RandomOneSentence(discuzz);
             Regex regex = new Regex("主题", RegexOptions.IgnoreCase);
@@ -361,7 +357,7 @@ namespace BullshitGenerator
         /// 生成文章
         /// </summary>
         /// <returns></returns>
-        static public string GenerateArticle()
+        static public string GenerateArticle(string theme)
         {
             string chapters = null;
             int chaptersLength = 0;
@@ -391,7 +387,7 @@ namespace BullshitGenerator
                         }
                         else
                         {
-                            sentence = GetSomeDiscuzz();
+                            sentence = GetSomeDiscuzz(theme);
                             chaptersLength = chaptersLength + sentence.Length;
                             chapters += sentence;
                         }
@@ -408,7 +404,7 @@ namespace BullshitGenerator
 
     public class ShitEnglish
     {
-        #region Bullshit Sayings
+        #region Bullshit
         static string[] bullshit =
         {
             "xx is a common condition among civilians in today’s society, so, ",
