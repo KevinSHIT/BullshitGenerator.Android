@@ -18,7 +18,7 @@
         android:hint="@string/output"
         android:layout_marginLeft ="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="110dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
     <Button
@@ -30,4 +30,14 @@
         android:layout_marginRight="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/btnswitch"
+        android:text="@string/switch-eng"
+        android:textStyle="bold"
+        android:layout_marginTop="-100dp"
+        android:layout_marginLeft ="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
 </LinearLayout>

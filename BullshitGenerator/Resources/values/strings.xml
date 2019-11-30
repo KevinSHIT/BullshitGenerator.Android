@@ -7,4 +7,6 @@
   <string name="copy_to_clipboard">Do you want to copy to clipboard?</string>
   <string name="ok">OK</string>
   <string name="cancle">Cancle</string>
+  <string name="switch-chs">Switch to Simplified Chinese</string>
+  <string name="switch-eng">Switch to English</string>
 </resources>
