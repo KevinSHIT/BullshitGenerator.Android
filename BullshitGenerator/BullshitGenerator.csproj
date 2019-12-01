@@ -54,8 +54,13 @@
     <AndroidDexTool>d8</AndroidDexTool>
     <AndroidLinkTool>r8</AndroidLinkTool>
     <MandroidI18n />
-    <AotAssemblies>true</AotAssemblies>
-    <AndroidSupportedAbis>armeabi-v7a</AndroidSupportedAbis>
+    <AotAssemblies>false</AotAssemblies>
+    <AndroidSupportedAbis>
+    </AndroidSupportedAbis>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <AndroidHttpClientHandlerType />
+    <BundleAssemblies>true</BundleAssemblies>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
