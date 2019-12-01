@@ -431,7 +431,7 @@ namespace BullshitGenerator
             "One of the longest standing arguments against the use of xx is that, ",
             "Modern vehement arguments against xx alone become suspect. ",
             "xx continues to be a relevant controversial issue in society today, as ",
-            "From my piont of view, xx means a lot to me, and ",
+            "From my point of view, xx means a lot to me, and ",
             "We have been thinking about xx for a long time. ",
             "What if xx happens, and what if xx does not happen. ",
             "When facing this difficult choice of xx, I rarely slept well. ",
