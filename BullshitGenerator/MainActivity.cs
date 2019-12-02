@@ -18,7 +18,7 @@ namespace BullshitGenerator
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            string mode = "chs"; //CHS or ENG
+            string mode = "chs"; //CHS or ENG or CHOUXIANG
 
             int fastClickCounter = 0;
             long lastClickTime = 0;
@@ -46,7 +46,6 @@ namespace BullshitGenerator
                 {
                     fastClickCounter += 1;
                     lastClickTime = currentTime;
-                    
                 }
                 else
                 {
@@ -65,14 +64,18 @@ namespace BullshitGenerator
                     Toast.MakeText(Application.Context, "BullshitGenerator by menzi11\nBullshitGenerator.Android by Kevin\nEnglish algorithm by JIUYANGZH\nMIT License\nKevin ♥ Jiangyu & .NET", ToastLength.Long).Show();
                     fastClickCounter = 0; //Replace counter
                 }
-                if (mode == "chs")
+                switch(mode.ToLower())
                 {
-                    Shit.theme = et_theme.Text;
+		case "chs":
                     et_output.Text = Shit.GenerateArticle(et_theme.Text);
-                }
-                else
-                {
-                    et_output.Text = shitEnglish.Generate(et_theme.Text).Replace("  .\n", "").Replace(" .\n", "");
+		    break;
+                case "eng":
+                    et_output.Text = shitEnglis_h.Generate(et_theme.Text).Replace("  .\n", "").Replace(" .\n", "");
+		    break;
+		case "chouxiang":
+		et_output.Text = Shit.GenerateArticle(et_theme.Text);
+		//TODO: Do some chouxiang
+		    break;
                 }
             };
 
@@ -84,7 +87,6 @@ namespace BullshitGenerator
                 alertDialog.SetButton(Resources.GetString(Resource.String.ok), async (s, a) =>
                 {
                     await Clipboard.SetTextAsync(et_output.Text);
-
                 });
                 alertDialog.SetButton2(Resources.GetString(Resource.String.cancle), (s, a) => { });
                 alertDialog.Show();
