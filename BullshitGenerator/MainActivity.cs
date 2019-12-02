@@ -125,8 +125,15 @@ namespace BullshitGenerator
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-	}
+    }
 
+    public class Tool
+    {
+	static string Chouxiang(string str) 
+	{return str.Replace //TODO: Chouxiang
+	}
+    }
+	
     public class Shit
     {
         static Random random = new Random();
