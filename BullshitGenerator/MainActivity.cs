@@ -11,6 +11,7 @@ using System.Text.RegularExpressions;
 using System.Collections;
 using Microsoft.International.Converters.PinYinConverter;
 using System.Collections.Generic;
+using Android.Graphics;
 
 namespace BullshitGenerator
 {
@@ -20,10 +21,15 @@ namespace BullshitGenerator
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            string mode = "chs"; //CHS or ENG or CHOUXIANG
+            string mode = "chs"; //CHS or ENG or CXG
+
+            long currentTime;
 
             int fastClickCounter = 0;
             long lastClickTime = 0;
+
+            int fastClickCounter4Chouxiang = 0;
+            long lastClickTime4Chouxiang = 0;
 
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
@@ -37,13 +43,15 @@ namespace BullshitGenerator
             #endregion
 
             Shit shit = new Shit();
+            Chouxiang chouxiang = new Chouxiang();
             ShitEnglish shitEnglish = new ShitEnglish();
 
             et_theme.Text = Shit.theme;
 
             btn_generate.Click += (sender, e) =>
             {
-                long currentTime = DateTime.Now.Ticks;
+                currentTime = DateTime.Now.Ticks;
+
                 if (fastClickCounter == 0)
                 {
                     fastClickCounter += 1;
@@ -74,8 +82,8 @@ namespace BullshitGenerator
                     case "eng":
                         et_output.Text = shitEnglish.Generate(et_theme.Text).Replace("  .\n", "").Replace(" .\n", "");
                         break;
-                    case "chouxiang":
-                        et_output.Text = Shit.GenerateArticle(et_theme.Text);
+                    case "cxg":
+                        et_output.Text = chouxiang.ChangeChouxiang(Shit.GenerateArticle(et_theme.Text));
                         //TODO: Do some chouxiang
                         break;
                 }
@@ -96,26 +104,57 @@ namespace BullshitGenerator
 
             btn_switch.Click += (sender, e) =>
             {
-                switch (mode.ToLower())
+                currentTime = DateTime.Now.Ticks;
+
+                if (fastClickCounter4Chouxiang == 0)
                 {
-                    case "chs":
-                        if (et_theme.Text == "一天掉多少根头发")
-                        {
-                            et_theme.Text = shitEnglish.theme;
-                        }
-                        mode = "eng";
-                        btn_switch.Text = Resources.GetString(Resource.String.switch_chs);
-                        break;
-                    case "eng":
-                        mode = "chs";
-                        if (et_theme.Text == shitEnglish.theme)
-                        {
-                            et_theme.Text = Shit.theme;
-                        }
-                        btn_switch.Text = Resources.GetString(Resource.String.switch_eng);
-                        break;
-                    default:
-                        throw new IndexOutOfRangeException();
+                    fastClickCounter4Chouxiang += 1;
+                    lastClickTime4Chouxiang = currentTime;
+                }
+                else
+                {
+                    if (currentTime - lastClickTime4Chouxiang <= 10000000)
+                    {
+                        fastClickCounter4Chouxiang += 1;
+                        lastClickTime4Chouxiang = currentTime;
+                    }
+                    else
+                    {
+                        fastClickCounter4Chouxiang = 0;
+                    }
+                }
+                if (fastClickCounter4Chouxiang == 5)
+                {
+                    mode = "cxg";
+                    btn_switch.SetTextColor(Android.Content.Res.ColorStateList.ValueOf(Color.Red));
+                    fastClickCounter4Chouxiang = 0;
+                }
+                else
+                {
+                    switch (mode.ToLower())
+                    {
+                        case "chs":
+                        case "cxg":
+                            if (et_theme.Text == "一天掉多少根头发")
+                            {
+                                et_theme.Text = shitEnglish.theme;
+                            }
+                            mode = "eng";
+                            btn_switch.Text = Resources.GetString(Resource.String.switch_chs);
+                            break;
+                        case "eng":
+                            mode = "chs";
+                            if (et_theme.Text == shitEnglish.theme)
+                            {
+                                et_theme.Text = Shit.theme;
+                            }
+                            btn_switch.Text = Resources.GetString(Resource.String.switch_eng);
+                            break;
+
+                        default:
+                            throw new IndexOutOfRangeException();
+                    }
+                    btn_switch.SetTextColor(Android.Content.Res.ColorStateList.ValueOf(Color.Black));
                 }
             };
 
@@ -132,9 +171,9 @@ namespace BullshitGenerator
     public class Chouxiang
     {
 
-        static string ChangeChouxiang(string str)
+        public string ChangeChouxiang(string str)
         {
-            str = SuperReplace(str, new string[] {"那", "辣", "啦"} , "🌶");
+            str = SuperReplace(str, new string[] { "那", "辣", "啦" }, "🌶");
             str = SuperReplace(str, new string[] { "屎", "大便" }, "💩");
             str = SuperReplace(str, new string[] { "我", "爷" }, "👴");
             str = SuperReplace(str, new string[] { "死" }, "💀");
@@ -148,9 +187,9 @@ namespace BullshitGenerator
             return str;
         }
 
-        static string SuperReplace(string str, string[] oldValue, string newValue)
+        string SuperReplace(string str, string[] oldValue, string newValue)
         {
-            foreach(string item in oldValue)
+            foreach (string item in oldValue)
             {
                 str = str.Replace(item, newValue);
             }
