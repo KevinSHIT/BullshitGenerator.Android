@@ -49,7 +49,7 @@ namespace BullshitGenerator
                 }
                 else
                 {
-                    if(currentTime - lastClickTime <= 10000000)
+                    if (currentTime - lastClickTime <= 10000000)
                     {
                         fastClickCounter += 1;
                         lastClickTime = currentTime;
@@ -59,23 +59,23 @@ namespace BullshitGenerator
                         fastClickCounter = 0;
                     }
                 }
-                if(fastClickCounter == 10)
+                if (fastClickCounter == 10)
                 {
                     Toast.MakeText(Application.Context, "BullshitGenerator by menzi11\nBullshitGenerator.Android by Kevin\nEnglish algorithm by JIUYANGZH\nMIT License\nKevin ♥ Jiangyu & .NET", ToastLength.Long).Show();
                     fastClickCounter = 0; //Replace counter
                 }
-                switch(mode.ToLower())
+                switch (mode.ToLower())
                 {
-		case "chs":
-                    et_output.Text = Shit.GenerateArticle(et_theme.Text);
-		    break;
-                case "eng":
-                    et_output.Text = shitEnglis_h.Generate(et_theme.Text).Replace("  .\n", "").Replace(" .\n", "");
-		    break;
-		case "chouxiang":
-		et_output.Text = Shit.GenerateArticle(et_theme.Text);
-		//TODO: Do some chouxiang
-		    break;
+                    case "chs":
+                        et_output.Text = Shit.GenerateArticle(et_theme.Text);
+                        break;
+                    case "eng":
+                        et_output.Text = shitEnglish.Generate(et_theme.Text).Replace("  .\n", "").Replace(" .\n", "");
+                        break;
+                    case "chouxiang":
+                        et_output.Text = Shit.GenerateArticle(et_theme.Text);
+                        //TODO: Do some chouxiang
+                        break;
                 }
             };
 
@@ -97,7 +97,7 @@ namespace BullshitGenerator
                 switch (mode.ToLower())
                 {
                     case "chs":
-                        if(et_theme.Text == "一天掉多少根头发")
+                        if (et_theme.Text == "一天掉多少根头发")
                         {
                             et_theme.Text = shitEnglish.theme;
                         }
@@ -106,7 +106,7 @@ namespace BullshitGenerator
                         break;
                     case "eng":
                         mode = "chs";
-                        if(et_theme.Text == shitEnglish.theme)
+                        if (et_theme.Text == shitEnglish.theme)
                         {
                             et_theme.Text = Shit.theme;
                         }
@@ -129,11 +129,12 @@ namespace BullshitGenerator
 
     public class Tool
     {
-	static string Chouxiang(string str) 
-	{return str.Replace //TODO: Chouxiang
-	}
+        static string Chouxiang(string str)
+        {
+            return str.Replace;//TODO: Chouxiang
+        }
     }
-	
+
     public class Shit
     {
         static Random random = new Random();
@@ -638,7 +639,7 @@ namespace BullshitGenerator
                 .Replace(", . ", ", ").Replace(".. ", ". ").Replace("?. ", "? ")
                 .Replace(",. ", ", ").Replace(". .", ". ").Replace("?.", "? ")
                 .Replace("?, ", "? ").Replace("?,", "? ").Replace("..", ". ")
-                .Replace("  "," ");
+                .Replace("  ", " ");
             string[] lst = str.Split(' ');
             for (int i = 0; i < lst.Length - 1; i++)
             {
