@@ -721,6 +721,6 @@ namespace BullshitGenerator
             return str[random.Next(0, str.Length)];
         }
 
-        string Capitalize(string str) => str.Substring(0, 1).ToUpper() + str.Substring(1, str.Length - 1).ToLower();
+        string Capitalize(string str) => str.Substring(0, 1).ToUpper() + str[1..].ToLower();
     }
 }

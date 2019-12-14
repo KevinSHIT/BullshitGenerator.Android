@@ -56,9 +56,8 @@
     <AndroidDexTool>d8</AndroidDexTool>
     <AndroidLinkTool>r8</AndroidLinkTool>
     <MandroidI18n />
-    <AotAssemblies>false</AotAssemblies>
-    <AndroidSupportedAbis>
-    </AndroidSupportedAbis>
+    <AotAssemblies>true</AotAssemblies>
+    <AndroidSupportedAbis>armeabi-v7a</AndroidSupportedAbis>
     <EnableLLVM>false</EnableLLVM>
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <AndroidHttpClientHandlerType />
