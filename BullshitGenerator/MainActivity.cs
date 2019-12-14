@@ -9,6 +9,8 @@ using Android.Widget;
 using Xamarin.Essentials;
 using System.Text.RegularExpressions;
 using System.Collections;
+using Microsoft.International.Converters.PinYinConverter;
+using System.Collections.Generic;
 
 namespace BullshitGenerator
 {
@@ -127,11 +129,32 @@ namespace BullshitGenerator
         }
     }
 
-    public class Tool
+    public class Chouxiang
     {
-        static string Chouxiang(string str)
+
+        static string ChangeChouxiang(string str)
         {
-            return str.Replace;//TODO: Chouxiang
+            str = SuperReplace(str, new string[] {"那", "辣", "啦"} , "🌶");
+            str = SuperReplace(str, new string[] { "屎", "大便" }, "💩");
+            str = SuperReplace(str, new string[] { "我", "爷" }, "👴");
+            str = SuperReplace(str, new string[] { "死" }, "💀");
+            str = SuperReplace(str, new string[] { "真", "针" }, "💉");
+            str = SuperReplace(str, new string[] { "要", "药" }, "💊");
+            str = SuperReplace(str, new string[] { "问", "吻" }, "💋");
+            str = SuperReplace(str, new string[] { "看", "瞅" }, "👀");
+            str = SuperReplace(str, new string[] { "问", "吻" }, "💋");
+            str = SuperReplace(str, new string[] { "妈", "马" }, "🐴");
+            str = SuperReplace(str, new string[] { "的", "滴", "水" }, "💦");
+            return str;
+        }
+
+        static string SuperReplace(string str, string[] oldValue, string newValue)
+        {
+            foreach(string item in oldValue)
+            {
+                str = str.Replace(item, newValue);
+            }
+            return str;
         }
     }
 
@@ -659,15 +682,6 @@ namespace BullshitGenerator
             return str[random.Next(0, str.Length)];
         }
 
-        string Capitalize(string str)
-        {
-            char[] i = str.ToCharArray();
-            i[0] = i[0].ToString().ToUpper().ToCharArray()[0];
-            for (int a = 1; a < i.Length; a++)
-            {
-                i[a] = i[a].ToString().ToLower().ToCharArray()[0];
-            }
-            return new string(i);
-        }
+        string Capitalize(string str) => str.Substring(0, 1).ToUpper() + str.Substring(1, str.Length - 1).ToLower();
     }
 }
