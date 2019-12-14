@@ -124,6 +124,12 @@ namespace BullshitGenerator
                     mode = "cxg";
                     btn_switch.SetTextColor(Android.Content.Res.ColorStateList.ValueOf(Color.Red));
                     fastClickCounter4Chouxiang = 0;
+
+                    var alertDialog = new Android.App.AlertDialog.Builder(this).Create();
+                    alertDialog.SetTitle(Resources.GetString(Resource.String.info));
+                    alertDialog.SetMessage(Resources.GetString(Resource.String.cxg_mode_on));
+                    alertDialog.SetButton(Resources.GetString(Resource.String.ok), (s, a) => { });
+                    alertDialog.Show();
                 }
                 else
                 {
@@ -169,11 +175,11 @@ namespace BullshitGenerator
 
         public string ChangeChouxiang(string str)
         {
+            str = SuperReplace(str, new string[] { "我", "爷", "爸", "爹" }, "👴");
             str = SuperReplace(str, new string[] { "的", "滴", "水" }, "💧");
             str = SuperReplace(str, new string[] { "8", "不", "八" }, "8️⃣");
             str = SuperReplace(str, new string[] { "那", "辣", "啦" }, "🌶");
             str = SuperReplace(str, new string[] { "屎", "大便" }, "💩");
-            str = SuperReplace(str, new string[] { "我", "爷" }, "👴");
             str = SuperReplace(str, new string[] { "真", "针" }, "💉");
             str = SuperReplace(str, new string[] { "要", "药" }, "💊");
             str = SuperReplace(str, new string[] { "问", "吻" }, "💋");
@@ -191,6 +197,7 @@ namespace BullshitGenerator
             str = str.Replace("无", "🈚");
             str = str.Replace("对", "✅");
             str = str.Replace("得", "🉐");
+            str = str.Replace("爱", "❤️");
             return str;
         }
 

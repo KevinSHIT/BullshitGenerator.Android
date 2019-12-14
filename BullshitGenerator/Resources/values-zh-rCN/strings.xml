@@ -9,4 +9,6 @@
   <string name="cancle">取消</string>
   <string name="switch_chs">切换至中文</string>
   <string name="switch_eng">切换至英文</string>
+  <string name="info">消息</string>
+  <string name="cxg_mode_on">成功触发彩蛋模式！抽象模式启动！</string>
 </resources>

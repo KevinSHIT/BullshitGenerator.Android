@@ -9,4 +9,6 @@
   <string name="cancle">Cancle</string>
   <string name="switch_chs">Switch to Simplified Chinese</string>
   <string name="switch_eng">Switch to English</string>
+  <string name="info">Information</string>
+  <string name="cxg_mode_on">Egg mode triggered successfully! Abstract mode starts!</string>
 </resources>
