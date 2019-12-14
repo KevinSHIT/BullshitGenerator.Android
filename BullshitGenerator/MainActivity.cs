@@ -173,17 +173,27 @@ namespace BullshitGenerator
 
         public string ChangeChouxiang(string str)
         {
+            str = SuperReplace(str, new string[] { "的", "滴", "水" }, "💧");
+            str = SuperReplace(str, new string[] { "8", "不", "八" }, "8️⃣");
             str = SuperReplace(str, new string[] { "那", "辣", "啦" }, "🌶");
             str = SuperReplace(str, new string[] { "屎", "大便" }, "💩");
             str = SuperReplace(str, new string[] { "我", "爷" }, "👴");
-            str = SuperReplace(str, new string[] { "死" }, "💀");
             str = SuperReplace(str, new string[] { "真", "针" }, "💉");
             str = SuperReplace(str, new string[] { "要", "药" }, "💊");
             str = SuperReplace(str, new string[] { "问", "吻" }, "💋");
             str = SuperReplace(str, new string[] { "看", "瞅" }, "👀");
             str = SuperReplace(str, new string[] { "问", "吻" }, "💋");
             str = SuperReplace(str, new string[] { "妈", "马" }, "🐴");
-            str = SuperReplace(str, new string[] { "的", "滴", "水" }, "💦");
+            str = SuperReplace(str, new string[] { "书", "本" }, "📕");
+            str = SuperReplace(str, new string[] { "们", "门" }, "🚪");
+            str = SuperReplace(str, new string[] { "1", "一" }, "1️⃣");
+            str = str.Replace("狗", "🐶");
+            str = str.Replace("加", "➕");
+            str = str.Replace("好", "👍");
+            str = str.Replace("死", "💀");
+            str = str.Replace("有", "🈶");
+            str = str.Replace("对", "✅");
+            str = str.Replace("得", "🉐");
             return str;
         }
 
