@@ -2,15 +2,11 @@
 using Android.App;
 using Android.OS;
 using Android.Runtime;
-using Android.Support.Design.Widget;
 using Android.Support.V7.App;
-using Android.Views;
 using Android.Widget;
 using Xamarin.Essentials;
 using System.Text.RegularExpressions;
 using System.Collections;
-using Microsoft.International.Converters.PinYinConverter;
-using System.Collections.Generic;
 using Android.Graphics;
 
 namespace BullshitGenerator
@@ -42,7 +38,7 @@ namespace BullshitGenerator
             Button btn_switch = FindViewById<Button>(Resource.Id.btnswitch);
             #endregion
 
-            Shit shit = new Shit();
+
             Chouxiang chouxiang = new Chouxiang();
             ShitEnglish shitEnglish = new ShitEnglish();
 
@@ -192,6 +188,7 @@ namespace BullshitGenerator
             str = str.Replace("好", "👍");
             str = str.Replace("死", "💀");
             str = str.Replace("有", "🈶");
+            str = str.Replace("无", "🈚");
             str = str.Replace("对", "✅");
             str = str.Replace("得", "🉐");
             return str;
@@ -207,9 +204,9 @@ namespace BullshitGenerator
         }
     }
 
-    public class Shit
+    public static class Shit
     {
-        static Random random = new Random();
+        static readonly Random random = new Random();
 
         /// <summary>
         /// 主题
@@ -220,7 +217,7 @@ namespace BullshitGenerator
         /// <summary>
         /// 论述
         /// </summary>
-        static string[] discuzz =
+        static readonly string[] discuzz =
         {
             "现在，解决主题的问题，是非常非常重要的。所以，",
             "我们不得不面对一个非常尴尬的事实，那就是，",
@@ -255,7 +252,7 @@ namespace BullshitGenerator
         /// <summary>
         /// 名人名言
         /// </summary>
-        static string[] quotes =
+        static readonly string[] quotes =
         {
             "伏尔泰曾经说过，不经巨大的困难，不会有伟大的事业。这不禁令我深思",
             "富勒曾经说过，苦难磨炼一些人，也毁灭另一些人。这不禁令我深思",
@@ -362,7 +359,7 @@ namespace BullshitGenerator
         /// <summary>
         /// 后面垫话
         /// </summary>
-        static string[] back =
+        static readonly string[] back =
         {
             "这不禁令我深思。",
             "带着这句话，我们还要更加慎重的审视这个问题。",
@@ -374,7 +371,7 @@ namespace BullshitGenerator
         /// <summary>
         /// 前面垫话
         /// </summary>
-        static string[] front =
+        static readonly string[] front =
         {
             "曾经说过",
             "在不经意间这样说过"
@@ -428,7 +425,7 @@ namespace BullshitGenerator
         static string AddParagraph(string chapters)
         {
             char[] c = chapters.ToCharArray();
-            if (c[c.Length - 1] == ' ')
+            if (c[^1] == ' ')
             {
                 chapters = chapters.Substring(0, c.Length - 3);
             }
@@ -441,10 +438,8 @@ namespace BullshitGenerator
         /// <returns></returns>
         static public string GenerateArticle(string theme)
         {
-            string chapters = null;
-            int chaptersLength = 0;
-            string sentence;
-            int rand;
+            string sentence, chapters;
+            int rand, chaptersLength;
             ArrayList article = new ArrayList();
             foreach (char empty in theme)
             {
@@ -464,13 +459,13 @@ namespace BullshitGenerator
                         if (rand < 20)
                         {
                             sentence = GetSomeQuotes();
-                            chaptersLength = chaptersLength + sentence.Length;
+                            chaptersLength += sentence.Length;
                             chapters += sentence;
                         }
                         else
                         {
                             sentence = GetSomeDiscuzz(theme);
-                            chaptersLength = chaptersLength + sentence.Length;
+                            chaptersLength += sentence.Length;
                             chapters += sentence;
                         }
                     }
@@ -487,7 +482,7 @@ namespace BullshitGenerator
     public class ShitEnglish
     {
         #region Bullshit
-        static string[] bullshit =
+        static readonly string[] bullshit =
         {
             "xx is a common condition among civilians in today’s society, so, ",
             "xx has become increasingly evident among teens according to many scientists, ",
@@ -521,7 +516,7 @@ namespace BullshitGenerator
             "The consequece of xx is of great significance to me, and to many other people. "
         };
 
-        static string[] prefix_1 =
+        static readonly string[] prefix_1 =
         {
             "concluded that, ",
             "attemptted to convince the reader that, ",
@@ -533,7 +528,7 @@ namespace BullshitGenerator
 
         };
 
-        static string[] addings =
+        static readonly string[] addings =
         {
             "Furthermore, ",
             "Moreover, ",
@@ -552,7 +547,7 @@ namespace BullshitGenerator
             "On the one hand, "
         };
 
-        static string[] example =
+        static readonly string[] example =
         {
             "That is to say, ",
             "For example, ",
@@ -563,7 +558,7 @@ namespace BullshitGenerator
             "Chiefly, "
         };
 
-        static string[] contrasts =
+        static readonly string[] contrasts =
         {
             "By contrasts, ",
             "Another way of viewing this is, ",
@@ -577,13 +572,13 @@ namespace BullshitGenerator
             "However, "
         };
 
-        static string[] prefix_2 =
+        static readonly string[] prefix_2 =
         {
             "According to ",
             "To quote from "
         };
 
-        static string[] suffix =
+        static readonly string[] suffix =
         {
             "which enlighten me. ",
             "that inspired me. ",
@@ -592,7 +587,7 @@ namespace BullshitGenerator
             "which brought a new way of thinking it. "
         };
 
-        static string[] author =
+        static readonly string[] author =
         {
             "Lao Tzu, Te Tao Ching",
             "Plato, Symposium / Phaedrus",
@@ -619,7 +614,7 @@ namespace BullshitGenerator
             "Comte de Lautréamont"
         };
 
-        static string[] saying =
+        static readonly string[] saying =
         {
             "the flame that burns Twice as bright burns half as long. ",
             "there is truth in wine and children. ",
@@ -681,7 +676,7 @@ namespace BullshitGenerator
             while (tmp.Length < length)
             {
                 para = random.Next(0, 100);
-                if (para < 5 && tmp.ToCharArray()[tmp.ToCharArray().Length - 2] != ',')
+                if (para < 5 && tmp.ToCharArray()[^2] != ',')
                 {
                     tmp += Paragraph();
                 }
