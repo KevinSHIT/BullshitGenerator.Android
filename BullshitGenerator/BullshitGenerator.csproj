@@ -55,9 +55,9 @@
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AndroidDexTool>d8</AndroidDexTool>
     <AndroidLinkTool>r8</AndroidLinkTool>
-    <MandroidI18n />
+    <MandroidI18n>CJK;Mideast;Rare;West;Other</MandroidI18n>
     <AotAssemblies>true</AotAssemblies>
-    <AndroidSupportedAbis>arm64-v8a</AndroidSupportedAbis>
+    <AndroidSupportedAbis>armeabi-v7a</AndroidSupportedAbis>
     <EnableLLVM>false</EnableLLVM>
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <AndroidHttpClientHandlerType />
