@@ -3,7 +3,6 @@
   <string name="output">输出</string>
   <string name="generate">生成</string>
   <string name="theme">主题</string>
-  <string name="info">消息</string>
   <string name="copy_to_clipboard">是否将文章复制到剪切板？</string>
   <string name="ok">好</string>
   <string name="cancle">取消</string>
