@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
+	
     <EditText
         android:id="@+id/theme"
         android:maxLines="1"
@@ -12,29 +13,36 @@
         android:layout_marginRight="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-    <EditText
-        android:enabled="true"
-        android:id="@+id/output"
-        android:hint="@string/output"
-        android:layout_marginLeft ="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="110dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+		
+	<ScrollView
+		android:fillViewport="true"
+		android:layout_weight="1"
+		android:layout_width="match_parent"
+		android:layout_height="0dp">
+	
+		<EditText
+			android:id="@+id/output"
+			android:gravity="top"
+			android:hint="@string/output"
+			android:layout_margin="10dp"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"/>
+		
+	</ScrollView>
+		
     <Button
         android:id="@+id/generate"
         android:text="@string/generate"
         android:textStyle="bold"
-        android:layout_marginTop="-60dp"
         android:layout_marginLeft ="8dp"
         android:layout_marginRight="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+		
     <Button
         android:id="@+id/btnswitch"
         android:text="@string/switch_eng"
         android:textStyle="bold"
-        android:layout_marginTop="-100dp"
         android:layout_marginLeft ="8dp"
         android:layout_marginRight="8dp"
         android:layout_width="match_parent"
